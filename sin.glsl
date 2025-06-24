@@ -3,6 +3,7 @@ precision mediump float;
 #endif
 
 uniform float u_time;
+uniform vec2 u_resolution;
 
 // sin function - use sine wave to create repeating patterns
 
@@ -17,8 +18,7 @@ vec3 palette(float t) {
 }
 
 void mainImage (out vec4 fragColor, in vec2 fragCoord) {
-    vec2 resolution = vec2 (800.0, 800.0);
-    vec2 uv = (fragCoord * 2.0 - resolution.xy) / resolution.y;
+    vec2 uv = (fragCoord * 2.0 - u_resolution.xy) / u_resolution.y;
 
     float stretchFactor = 8.0; // controls number of rings
     float colorIntensityFactor = 8.0; // controls width of rings
